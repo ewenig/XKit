@@ -19,6 +19,12 @@ XKit.extensions.old_reblogs = new Object({
 		XKit.extensions.old_reblogs.main();
 	},
 
+	frame_run: function() {
+		if (XKit.page.peepr) {
+			XKit.extensions.old_reblogs.run();
+		}
+	},
+
 	main: function() {
 		var posts = XKit.interface.get_posts('xkit-old-reblogs-done', false);
 
