@@ -20,7 +20,7 @@ XKit.extensions.old_reblogs = new Object({
 
 	main: function() {
 		var posts = XKit.interface.get_posts('xkit-old-reblogs-done', false);
-		window.console.log(posts);
+
 		if (posts.length <= 0) {
 			// no posts
 			return;
