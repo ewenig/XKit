@@ -15,6 +15,7 @@ XKit.extensions.old_reblogs = new Object({
 		XKit.post_listener.add("old_reblogs", XKit.extensions.old_reblogs.main);
 		XKit.tools.add_css('.xkit-old-reblogs-done div.reblog-list { display: none }','xkit_old_reblogs_remove_reblog_list');
 		XKit.tools.add_css('.xkit-old-reblogs-done div.contributed-content { display: none }','xkit_old_reblogs_remove_reblog_content');
+		XKit.tools.add_css('.post_media { margin-bottom: 15px !important }','xkit_old_reblogs_fix_post_spacing');
 		XKit.extensions.old_reblogs.main();
 	},
 
@@ -93,6 +94,7 @@ XKit.extensions.old_reblogs = new Object({
 		this.running = false;
 		XKit.tools.remove_css("xkit_old_reblogs_remove_reblog_list");
 		XKit.tools.remove_css("xkit_old_reblogs_remove_reblog_content");
+		XKit.tools.remove_css("xkit_old_reblogs_fix_post_spacing");
 		XKit.interface.post_window_listener.remove("old_reblogs");
 	}
 });
