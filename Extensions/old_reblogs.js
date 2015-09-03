@@ -42,7 +42,7 @@ XKit.extensions.old_reblogs = new Object({
 			}
 			$(this).addClass(processed_class);
 
-			var users_chain = reblog_chain.find('a.reblog-tumblelog-name');
+			var users_chain = reblog_chain.find('.reblog-tumblelog-name');
 			var content_chain = reblog_chain.find('div.reblog-content');
 
 			// the tag we will insert the new post content into
@@ -59,7 +59,15 @@ XKit.extensions.old_reblogs = new Object({
 			var post_body = $(document.createElement('div')).addClass('post_body xkit-old-reblogs-new');
 			var body_content = "";
 			$(users_chain.get().reverse()).each(function() {
-				body_content += '<p><a class="tumblr_blog" href="' + $(this).attr('href') + '">' + $(this).html() + '</a>:<blockquote>';
+				var user_link = $(this).attr('href');
+				if (typeof(user_link) === 'undefined') {
+					// user is deactivated
+					body_content += '<p><a class="tumblr_blog" title="deactivated">';
+				} else {
+					body_content += '<p><a class="tumblr_blog" href="' + user_link + '">';
+				}
+				// thanks: http://stackoverflow.com/a/8506972
+				body_content += $(this).contents().get(0).nodeValue + '</a>:<blockquote>';
 			});
 			content_chain.each(function() {
 				body_content += $(this).html();
