@@ -46,7 +46,7 @@ XKit.extensions.old_reblogs = new Object({
 			var content_chain = reblog_chain.find('div.reblog-content');
 
 			// the tag we will insert the new post content into
-			post_entrypoint = $(this).find('.post_content_inner');
+			var post_entrypoint = $(this).find('.post_content_inner');
 
 			if (typeof(title_text) !== 'undefined') {
 				// append the title of the post
@@ -56,8 +56,8 @@ XKit.extensions.old_reblogs = new Object({
 			}
 
 			// (re)construct the post, starting from the list of usernames in the reblog list and working backwards
-			post_body = $(document.createElement('div')).addClass('post_body xkit-old-reblogs-new');
-			body_content = "";
+			var post_body = $(document.createElement('div')).addClass('post_body xkit-old-reblogs-new');
+			var body_content = "";
 			$(users_chain.get().reverse()).each(function() {
 				body_content += '<p><a class="tumblr_blog" href="' + $(this).attr('href') + '">' + $(this).html() + '</a>:<blockquote>';
 			});
